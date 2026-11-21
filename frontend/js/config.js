@@ -4,13 +4,13 @@ const API_BASE = ["localhost", "127.0.0.1"].includes(location.hostname)
 
 // Your personal details. An empty value is hidden on the site.
 const PROFILE = {
-  email: "dhanushkumar9211@gmail.com",   // EDIT: e.g. "name@gmail.com"
-  city: "Manipal,Udupi,Karnataka",    // EDIT: where you're based, e.g. "Bengaluru, India"
+  email: "dhanushkumar9211@gmail.com",
+  city: "Manipal, Udupi, Karnataka, India",
   education: "B.E. Biotechnology, NMAM Institute of Technology, Nitte (2020–2024)",
   current: "AI Engineer Intern, Oraxiz Inc",
   openTo: "AI engineer roles",
   stack: "Python · LangGraph · FastAPI · ChromaDB",
-  learning: [],  // EDIT: e.g. ["MCP", "LLM evaluation"]. Empty = hidden.
+  learning: [], // e.g. ["MCP", "LLM evaluation"]. Empty = hidden.
   // Shown until you publish a resume, which then replaces this list
   skills: [
     { label: "Languages", items: ["Python", "JavaScript"] },

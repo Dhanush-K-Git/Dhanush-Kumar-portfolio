@@ -75,6 +75,7 @@ Copy `.env.example` to `.env` and fill it in. `.env` is never committed.
 | `GROQ_API_KEY` | key for resume extraction |
 | `GROQ_MODEL` | model name; change it if Groq retires the current one |
 | `GITHUB_USERNAME` | whose repositories to show |
+| `GITHUB_TOKEN` | optional read-only token; raises the GitHub API limit, which matters on shared hosting IPs |
 | `ALLOWED_ORIGINS` | comma-separated frontend URLs allowed by CORS |
 
 ## Run locally
