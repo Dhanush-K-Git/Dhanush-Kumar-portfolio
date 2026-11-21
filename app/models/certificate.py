@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime, timezone
 
+
 class Certificate(BaseModel):
     title: str
     issuer: str
@@ -13,7 +14,7 @@ class Certificate(BaseModel):
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
-def certificate_helper(cert) -> dict:
+def certificate_helper(cert, has_file: bool = False) -> dict:
     return {
         "id": str(cert["_id"]),
         "title": cert["title"],
@@ -24,4 +25,5 @@ def certificate_helper(cert) -> dict:
         "image_url": cert.get("image_url"),
         "featured": cert.get("featured", False),
         "created_at": cert.get("created_at"),
+        "has_file": has_file,
     }

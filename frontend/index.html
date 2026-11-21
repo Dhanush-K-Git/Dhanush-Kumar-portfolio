@@ -4,73 +4,137 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dhanush Kumar | AI Engineer</title>
-  <meta name="description" content="AI engineer building agentic systems and RAG pipelines. Projects, certificates and contact.">
+  <meta name="description" content="Dhanush Kumar is an AI engineer building agentic AI systems, RAG pipelines and LLM-powered backends in Python. Projects, GitHub repositories, resume and contact.">
+  <meta name="author" content="Dhanush Kumar">
+  <meta property="og:title" content="Dhanush Kumar | AI Engineer">
+  <meta property="og:description" content="AI engineer building agentic AI systems and RAG pipelines. Projects, resume and contact.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark"; }
+    catch (e) { document.documentElement.dataset.theme = "dark"; }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fixes.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dhanush Kumar",
+    "jobTitle": "AI Engineer",
+    "alumniOf": "NMAM Institute of Technology",
+    "sameAs": [
+      "https://github.com/Dhanush-K-Git",
+      "https://linkedin.com/in/dhanush-kumar-732a01305"
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <nav class="nav container" aria-label="Main">
-      <a href="#home" class="brand">dhanush<span>.</span></a>
+      <a href="#home" class="brand">
+        <img class="avatar" src="assets/profile.jpg" alt="" width="30" height="30" onerror="this.remove()">
+        <span>Dhanush Kumar<i>.</i></span>
+      </a>
       <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#repos">GitHub</a></li>
         <li><a href="#certificates">Certificates</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button type="button" id="theme-toggle" class="icon-btn" aria-label="Switch theme">☀</button>
     </nav>
   </header>
 
   <main>
     <section id="home" class="hero container">
-      <p class="eyebrow">AI Engineer</p>
-      <h1>I build agentic AI systems and <em>RAG pipelines</em>.</h1>
-      <p class="lead">Replace this with one or two sentences in your own words: what you build and what kind of role you're looking for.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#projects">View projects</a>
-        <a class="btn" href="https://github.com/Dhanush-K-Git" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://linkedin.com/in/dhanush-kumar-732a01305" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">AI Engineer · Portfolio</p>
+          <h1 class="name">Dhanush Kumar</h1>
+          <p class="tagline">I build agentic AI systems and <em>RAG pipelines</em>.</p>
+          <p class="lead">AI engineer with a biotechnology background, building LLM-powered backends, multi-agent workflows and retrieval systems in Python. Open to AI engineer roles.</p>
+
+          <ul class="facts" id="facts"></ul>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#repos">View my GitHub projects</a>
+            <a class="btn" id="hero-email" hidden>Email me</a>
+            <a class="btn" data-resume-link hidden>Download resume</a>
+            <a class="btn" href="https://github.com/Dhanush-K-Git" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://linkedin.com/in/dhanush-kumar-732a01305" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Hides itself if frontend/assets/profile.jpg does not exist -->
+        <img class="portrait" src="assets/profile.jpg" alt="Photo of Dhanush Kumar" width="300" height="300" style="justify-self:center" onerror="this.remove()">
+      </div>
+
+      <!-- Filled from the Recruiter quick view on the admin page. Delete this line to remove it. -->
+      <dl class="status" id="status" hidden></dl>
+    </section>
+
+    <section id="experience" class="section container" hidden>
+      <div class="section-head">
+        <p class="kicker">get_experience()</p>
+        <h2 class="section-title">Experience</h2>
+      </div>
+      <ol class="timeline" id="experience-list"></ol>
+      <div id="education-block" hidden>
+        <h3 class="subhead">Education</h3>
+        <ol class="timeline" id="education-list"></ol>
       </div>
     </section>
 
-    <section id="projects" class="section container">
-      <h2 class="section-title"><span class="mono">01</span> Projects</h2>
-      <div id="projects-grid" class="grid"></div>
-    </section>
-
-        <section id="repos" class="section container">
-      <h2 class="section-title"><span class="mono">02</span> GitHub repositories</h2>
+    <section id="repos" class="section container">
+      <div class="section-head">
+        <p class="kicker">list_repos()</p>
+        <h2 class="section-title">GitHub repositories</h2>
+      </div>
       <p class="section-note">Pulled live from my GitHub, so new repositories appear here automatically.</p>
       <div id="repos-grid" class="grid"></div>
     </section>
-    
+
     <section id="certificates" class="section container">
-      <h2 class="section-title"><span class="mono">02</span> Certificates</h2>
+      <div class="section-head">
+        <p class="kicker">get_certificates()</p>
+        <h2 class="section-title">Certificates</h2>
+      </div>
       <div id="certificates-grid" class="grid"></div>
     </section>
-        <section id="about" class="section container">
-      <h2 class="section-title"><span class="mono">03</span> About</h2>
+
+    <section id="about" class="section container">
+      <div class="section-head">
+        <p class="kicker">get_profile()</p>
+        <h2 class="section-title">About</h2>
+      </div>
       <div class="about">
         <div class="about-text">
-          <p>Write two or three short paragraphs here: what you work on, how you got into AI, and what you want to do next.</p>
-          <p>Keep it specific. A sentence about something you built beats a list of adjectives.</p>
+          <p>I came into AI engineering from biotechnology. After my B.E. in Biotechnology at NMAM Institute of Technology (2020–2024), I taught myself software and machine learning through internships and by building projects.</p>
+          <p>At Oraxiz Inc I work as an AI Engineer Intern on client projects: multi-agent workflows, retrieval pipelines (RAG) and the FastAPI services around them. My everyday stack is Python, LangGraph, FastAPI and ChromaDB.</p>
+          <p>I'm looking for a full-time AI engineering role where I can keep shipping systems that work outside a demo.</p>
         </div>
-        <dl class="skills">
-          <div><dt class="mono">Languages</dt><dd>Python, SQL, JavaScript</dd></div>
-          <div><dt class="mono">AI / LLM</dt><dd>LangGraph, RAG, Claude API</dd></div>
-          <div><dt class="mono">Backend</dt><dd>FastAPI, MongoDB</dd></div>
-          <div><dt class="mono">Tools</dt><dd>ChromaDB, Git, GitHub</dd></div>
-        </dl>
       </div>
+      <div class="skill-groups" id="skills"></div>
     </section>
 
     <section id="contact" class="section container">
-      <h2 class="section-title"><span class="mono">04</span> Contact</h2>
+      <div class="section-head">
+        <p class="kicker">contact()</p>
+        <h2 class="section-title">Contact</h2>
+      </div>
       <p class="lead">Open to AI engineering roles. Email is the fastest way to reach me.</p>
+      <p class="email-line" id="email-line" hidden>
+        <a id="email-link" class="email-text"></a>
+        <button type="button" class="btn" id="copy-email">Copy email</button>
+      </p>
       <div class="actions">
-        <a class="btn btn-primary" href="mailto:dhanushkumar9211@gmail.com">Email me</a>
+        <a class="btn" data-resume-link hidden>Download resume</a>
         <a class="btn" href="https://linkedin.com/in/dhanush-kumar-732a01305" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://github.com/Dhanush-K-Git" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -78,9 +142,10 @@
   </main>
 
   <footer class="site-footer container">
-    <p class="mono">© <span id="year"></span> Dhanush Kumar</p>
+    <p class="mono">© <span id="year"></span> Dhanush Kumar · Built with FastAPI, MongoDB and vanilla JavaScript</p>
   </footer>
 
+  <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

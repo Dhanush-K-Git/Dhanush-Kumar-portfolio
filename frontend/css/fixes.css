@@ -1,0 +1,6 @@
+/* Layout fixes: long names must wrap inside their card instead of spilling out */
+.card { min-width: 0; }
+.card h3,
+.card p,
+.timeline-item h3 { overflow-wrap: anywhere; }
+.links { flex-wrap: wrap; }

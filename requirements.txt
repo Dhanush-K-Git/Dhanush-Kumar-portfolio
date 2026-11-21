@@ -4,3 +4,6 @@ pymongo
 python-dotenv
 pydantic
 httpx
+groq
+pypdf
+python-multipart

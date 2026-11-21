@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .admin-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+    .admin-list li {
+      display: flex; align-items: center; gap: 0.75rem;
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 0.6rem 0.9rem; background: var(--surface);
+    }
+    .admin-list li span { flex: 1; overflow-wrap: anywhere; }
+    .admin-list .muted { color: var(--muted); }
+    .admin-list button { cursor: pointer; font: inherit; font-size: 0.85rem; color: var(--text);
+      background: none; border: 1px solid var(--border); border-radius: 999px; padding: 0.25rem 0.8rem; }
+    .admin-list button:hover { border-color: var(--border-hover); }
+    .admin-form { display: grid; gap: 1rem; margin-top: 0.5rem; }
+    .admin label.check { display: flex; align-items: center; gap: 0.6rem; }
+    .admin label.check input { width: auto; }
+    .admin .row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .admin hr { border: 0; border-top: 1px solid var(--border); width: 100%; margin: 1rem 0 0; }
+  </style>
+</head>
+<body>
+  <main class="container admin">
+    <p><a href="index.html">← Back to site</a></p>
+    <h1>Admin</h1>
+    <p id="status" class="status"></p>
+
+    <label>Admin key <input id="key" type="password" autocomplete="off"></label>
+
+    <hr>
+    <h2>Resume</h2>
+    <input id="file" type="file" accept="application/pdf">
+    <button id="extract" class="btn">Extract with AI</button>
+    <label>Draft (edit before publishing)
+      <textarea id="json" rows="18" spellcheck="false"></textarea>
+    </label>
+    <button id="publish" class="btn btn-primary">Publish</button>
+
+    <hr>
+    <h2>Recruiter quick view</h2>
+    <label>Open to <input id="open_to" placeholder="e.g. AI engineer roles"></label>
+    <label>Work preference <input id="work_preference" placeholder="e.g. Remote / hybrid / on-site"></label>
+    <label>Availability <input id="availability" placeholder="e.g. Immediately / 30 days"></label>
+    <label>Location <input id="location" placeholder="City, country"></label>
+    <button id="save-qv" class="btn btn-primary">Save quick view</button>
+
+    <hr>
+    <h2>Certificates</h2>
+    <ul id="certificate-list" class="admin-list"></ul>
+    <form id="certificate-form" class="admin-form">
+      <label>Title <input id="c_title" required></label>
+      <label>Issuer <input id="c_issuer" required placeholder="e.g. Coursera, AWS, Google"></label>
+      <label>Issued (optional) <input id="c_date" placeholder="2026-03"></label>
+      <label>Credential ID (optional) <input id="c_id"></label>
+      <label>Verification URL (optional) <input id="c_url" type="url"></label>
+      <label>Certificate PDF (optional, up to 3 MB; choose a file to add or replace it) <input id="c_file" type="file" accept="application/pdf"></label>
+      <div class="row">
+        <button class="btn btn-primary" type="submit">Save certificate</button>
+        <button class="btn" type="button" id="c_cancel" hidden>Cancel edit</button>
+      </div>
+    </form>
+  </main>
+  <script src="js/config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

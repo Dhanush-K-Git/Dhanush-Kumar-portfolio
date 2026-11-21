@@ -5,5 +5,8 @@ load_dotenv()
 
 MONGODB_URI = os.getenv("MONGODB_URI")
 DB_NAME = os.getenv("DB_NAME", "portfolio")
-GITHUB_USERNAME = os.getenv("GITHUB_USERNAME", "Dhanush-K-Git")
 ADMIN_API_KEY = os.getenv("ADMIN_API_KEY")
+GITHUB_USERNAME = os.getenv("GITHUB_USERNAME", "Dhanush-K-Git")
+ALLOWED_ORIGINS = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "").split(",") if o.strip()]
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
